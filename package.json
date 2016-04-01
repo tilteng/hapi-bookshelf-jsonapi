@@ -1,0 +1,8 @@
+{
+  "name": "hapi-bookshelf-jsonapi",
+  "version": "0.0.0",
+  "description": "Uses Bookshelf models to produce JSON API server routes.",
+  "author": "Ian Good",
+  "license": "MIT",
+  "main": "./lib"
+}

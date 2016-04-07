@@ -29,7 +29,7 @@ server.register([
         'author': {
           model: 'Author',          // Model registered in hapi-bookshelf-models
           basePath: '/authors',
-          specialColumn: {
+          specialColumn: {          // Optional info about special columns
             updated: 'updated_at',  // Column set to NOW() on PATCH etc.
             meta: ['created_at', 'updated_at'], // Columns included in "meta"
                                                 // instead of "attributes"

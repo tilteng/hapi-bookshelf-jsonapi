@@ -27,12 +27,13 @@ server.register([
     options: {
       resources: {
         'author': {
-          model: 'Author',          // Model registered in hapi-bookshelf-models
+          model: 'Author',          // Model name in registry
           basePath: '/authors',
           specialColumn: {          // Optional info about special columns
             updated: 'updated_at',  // Column set to NOW() on PATCH etc.
             meta: ['created_at', 'updated_at'], // Columns included in "meta"
                                                 // instead of "attributes"
+            hidden: ['password'],
           },
           relationships: {
             hasOne: {

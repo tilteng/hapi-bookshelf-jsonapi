@@ -113,6 +113,31 @@ server.ext({
 });
 ```
 
+## Authorization
+
+Sometimes you won't want to give all authenticated user's access to all JSON
+API resources. You can use Hapi's `onPreHandler` extension point, in
+conjunction with some information exposed in the route configuration, to add
+your own logic:
+
+```javascript
+server.ext('onPreHandler', function (request, reply) {
+  try {
+    const creds = request.auth.credentials;
+    const route = request.route.settings.plugins['hapi-bookshelf-jsonapi'];
+    console.log(route);   // To see everything that's available.
+    if (creds.role !== 'admin') {
+      if (route.action !== 'fetch' && route.action !== 'index') {
+        throw new Boom.forbidden();
+      }
+    }
+  } catch (err) {
+    if (err.isBoom) return reply(err);
+  }
+  return reply.continue();
+});
+```
+
 [1]: https://github.com/wraithgar/hapi-json-api
 [2]: http://bookshelfjs.org/
 [3]: https://github.com/hapijs/boom

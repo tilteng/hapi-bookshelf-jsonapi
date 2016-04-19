@@ -129,7 +129,7 @@ server.ext('onPreHandler', function (request, reply) {
     console.log(route);   // To see everything that's available.
     if (creds.role !== 'admin') {
       if (route.action !== 'fetch' && route.action !== 'index') {
-        throw new Boom.forbidden();
+        throw Boom.forbidden();
       }
     }
   } catch (err) {

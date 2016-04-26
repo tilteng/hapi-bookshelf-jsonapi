@@ -1,12 +1,13 @@
 {
   "name": "hapi-bookshelf-jsonapi",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Uses Bookshelf models to produce JSON API server routes.",
   "repository": "https://github.com/tilteng/hapi-bookshelf-jsonapi",
   "author": "Tilt Engineering",
   "license": "MIT",
   "main": "lib/index.js",
   "dependencies": {
-    "boom": "^3.1.2"
+    "boom": "^3.1.2",
+    "joi": "^8.0.5"
   }
 }

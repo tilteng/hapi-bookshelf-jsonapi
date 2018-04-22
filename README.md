@@ -9,10 +9,10 @@ Uses Bookshelf models to produce JSON API server routes on a Hapi server.
 npm install hapi-bookshelf-jsonapi --save
 ```
 
-You should also install [`hapi-json-api`][1] to get functionality it provides:
+You should also install [`hapi-json-api`][1] & [`hapi-bookshelf-models`][4] to get functionality it provides:
 
 ```
-npm install @gar/hapi-json-api --save
+npm install @gar/hapi-json-api hapi-bookshelf-models --save
 ```
 
 ## Setup
@@ -21,6 +21,7 @@ Now we need to register these plugins:
 
 ```javascript
 server.register([
+  { register: require('hapi-bookshelf-models') },
   { register: require('@gar/hapi-json-api') },
   {
     register: require('hapi-bookshelf-jsonapi').register,
@@ -142,3 +143,4 @@ server.ext('onPreHandler', function (request, reply) {
 [1]: https://github.com/wraithgar/hapi-json-api
 [2]: http://bookshelfjs.org/
 [3]: https://github.com/hapijs/boom
+[4]: https://github.com/lob/hapi-bookshelf-models
